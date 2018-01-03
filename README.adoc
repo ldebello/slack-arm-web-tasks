@@ -1,0 +1,7 @@
+= Slack ARM Web Tasks
+
+== ARM PRs
+Shows the status for all currently open PRs in ARM repositories, execute:
+```
+/wt arm-prs
+```

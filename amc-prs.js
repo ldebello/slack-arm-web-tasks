@@ -7,7 +7,13 @@ module.exports = function (ctx, cb) {
     'mulesoft/amc-atlas',
     'mulesoft/amc-agent-reg-facade',
     'mulesoft/amc-configuration-resolver',
-    'mulesoft/transport-layer'
+    'mulesoft/transport-layer',
+
+    'mulesoft-ops/tf-amc-deployer',
+    'mulesoft-ops/tf-amc-atlas',
+    'mulesoft-ops/tf-amc-agent-reg-facade',
+    'mulesoft-ops/tf-amc-configuration-resolver',
+    'mulesoft-ops/tf-transport-layer'
   ].map(function (repo) {
     return fetchPR(repo);
   });

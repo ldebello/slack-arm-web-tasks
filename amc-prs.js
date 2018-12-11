@@ -3,17 +3,31 @@ var fetch = require('isomorphic-fetch');
 module.exports = function (ctx, cb) {
   var token = ctx.secrets['github-token'];
   var prsPromise = [
+    'mulesoft-labs/amc-deployer-test-client',
+
+    'mulesoft/amc-auth-proxy',
+    'mulesoft/amc-agent-reg-facade',
     'mulesoft/amc-deployer',
     'mulesoft/amc-atlas',
-    'mulesoft/amc-agent-reg-facade',
     'mulesoft/amc-configuration-resolver',
+    'mulesoft/amc-support-x-api',
     'mulesoft/transport-layer',
 
+    'mulesoft-ops/tf-amc-auth-proxy',
+    'mulesoft-ops/tf-amc-agent-reg-facade',
     'mulesoft-ops/tf-amc-deployer',
     'mulesoft-ops/tf-amc-atlas',
-    'mulesoft-ops/tf-amc-agent-reg-facade',
     'mulesoft-ops/tf-amc-configuration-resolver',
-    'mulesoft-ops/tf-transport-layer'
+    'mulesoft-ops/tf-amc-support-x-api',
+    'mulesoft-ops/tf-transport-layer',
+
+    'mulesoft-ops/formula-amc-auth-proxy',
+    'mulesoft-ops/formula-amc-agent-reg-facade',
+    'mulesoft-ops/formula-amc-deployer',
+    'mulesoft-ops/formula-amc-atlas',
+    'mulesoft-ops/formula-amc-configuration-resolver',
+    'mulesoft-ops/formula-amc-support-x-api',
+    'mulesoft-ops/formula-transport-layer'
   ].map(function (repo) {
     return fetchPR(repo);
   });

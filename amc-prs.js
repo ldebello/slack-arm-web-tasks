@@ -13,6 +13,8 @@ module.exports = function (ctx, cb) {
     'mulesoft/amc-support-x-api',
     'mulesoft/transport-layer',
 
+    'mulesoft/amc-base-http-client-starter',
+
     'mulesoft-ops/tf-amc-auth-proxy',
     'mulesoft-ops/tf-amc-agent-reg-facade',
     'mulesoft-ops/tf-amc-deployer',

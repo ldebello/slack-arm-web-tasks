@@ -6,7 +6,19 @@ module.exports = function (ctx, cb) {
     'mulesoft/arm-platform',
     'mulesoft/mule-agent-plugin',
     'mulesoft/hybrid-rest',
-    'mulesoft/cloudhub-mcm'
+    'mulesoft/cloudhub-mcm',
+    'mulesoft/metadata-manager',
+    'mulesoft/amc-ui-rest-facade',
+    'mulesoft/platform-alerts',
+    'mulesoft/arm-monitoring',
+    'mulesoft/insight-ui-proxy',
+    'mulesoft/cloudhub-ui',
+    'mulesoft/arm-ui',
+    'mulesoft/arm-flows-ui',
+    'mulesoft/arm-monitoring-ui',
+    'mulesoft/anypoint-alerts-ui',
+    'mulesoft/alerts-admin-ui',
+    'mulesoft/arm-components-ui'
   ].map(function (repo) {
     return fetchPR(repo);
   });

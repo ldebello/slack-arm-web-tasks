@@ -12,6 +12,7 @@ module.exports = function (ctx, cb) {
     'mulesoft/amc-configuration-resolver',
     'mulesoft/amc-support-x-api',
     'mulesoft/transport-layer',
+    'mulesoft/amc-quotas'
 
     'mulesoft/amc-base-http-client-starter',
 

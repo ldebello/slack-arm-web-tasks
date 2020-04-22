@@ -3,7 +3,8 @@ var fetch = require('isomorphic-fetch');
 module.exports = function (ctx, cb) {
   var token = ctx.secrets['github-token'];
   var prsPromise = [
-    'mulesoft-labs/amc-deployer-test-client',
+    'mulesoft/amc-automation',
+    'mulesoft/amc-base-http-client-starter',
 
     'mulesoft/amc-auth-proxy',
     'mulesoft/amc-agent-reg-facade',
@@ -11,17 +12,19 @@ module.exports = function (ctx, cb) {
     'mulesoft/amc-atlas',
     'mulesoft/amc-configuration-resolver',
     'mulesoft/amc-support-x-api',
-    'mulesoft/transport-layer',
     'mulesoft/amc-quotas',
-
-    'mulesoft/amc-base-http-client-starter',
+    'mulesoft/transport-layer',
 
     'mulesoft-ops/tf-amc-auth-proxy',
     'mulesoft-ops/tf-amc-agent-reg-facade',
     'mulesoft-ops/tf-amc-deployer',
+    'mulesoft-ops/tf-amc-deployer-db',
     'mulesoft-ops/tf-amc-atlas',
     'mulesoft-ops/tf-amc-configuration-resolver',
     'mulesoft-ops/tf-amc-support-x-api',
+    'mulesoft-ops/tf-amc-quotas',
+    'mulesoft-ops/tf-amc-quotas-db',
+    'mulesoft-ops/tf-amc-notification-bus',
     'mulesoft-ops/tf-transport-layer',
 
     'mulesoft-ops/formula-amc-auth-proxy',
@@ -30,6 +33,9 @@ module.exports = function (ctx, cb) {
     'mulesoft-ops/formula-amc-atlas',
     'mulesoft-ops/formula-amc-configuration-resolver',
     'mulesoft-ops/formula-amc-support-x-api',
+    'mulesoft-ops/formula-amc-quotas',
+    'mulesoft-ops/formula-amc-quotas-broker',
+    'mulesoft-ops/formula-amc-notification-bus',
     'mulesoft-ops/formula-transport-layer'
   ].map(function (repo) {
     return fetchPR(repo);

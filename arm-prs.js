@@ -4,21 +4,56 @@ module.exports = function (ctx, cb) {
   var token = ctx.secrets['github-token'];
   var prsPromise = [
     'mulesoft/arm-platform',
+
     'mulesoft/mule-agent-plugin',
     'mulesoft/hybrid-rest',
     'mulesoft/cloudhub-mcm',
-    'mulesoft/metadata-manager',
+    'mulesoft/atlas',
     'mulesoft/amc-ui-rest-facade',
     'mulesoft/platform-alerts',
+    'mulesoft/platform-messages',
     'mulesoft/arm-monitoring',
+    'mulesoft/alerts-admin-api',
+    'mulesoft/mule-message-processor',
     'mulesoft/insight-ui-proxy',
-    'mulesoft/cloudhub-ui',
+
     'mulesoft/arm-ui',
     'mulesoft/arm-flows-ui',
     'mulesoft/arm-monitoring-ui',
     'mulesoft/anypoint-alerts-ui',
     'mulesoft/alerts-admin-ui',
-    'mulesoft/arm-components-ui'
+    'mulesoft/arm-components-ui',
+
+    'mulesoft-ops/tf-application-manager',
+    'mulesoft-ops/tf-application-manager-db',
+    'mulesoft-ops/tf-mcm',
+    'mulesoft-ops/tf-atlas',
+    'mulesoft-ops/tf-facade',
+    'mulesoft-ops/tf-platform-alerts',
+    'mulesoft-ops/tf-platform-messages',
+    'mulesoft-ops/tf-arm-mon-query',
+    'mulesoft-ops/tf-arm-mon-alert',
+    'mulesoft-ops/tf-arm-mon-sync',
+    'mulesoft-ops/tf-arm-mon-ingest',
+    'mulesoft-ops/tf-alerts-admin-api',
+    'mulesoft-ops/tf-mule-message-processor',
+    'mulesoft-ops/tf-hybrid-insight',
+
+    'mulesoft-ops/formula-application-manager',
+    'mulesoft-ops/formula-mcm',
+    'mulesoft-ops/formula-webserver-mcm',
+    'mulesoft-ops/formula-webserver-mcm-public-cert',
+    'mulesoft-ops/formula-atlas',
+    'mulesoft-ops/formula-facade',
+    'mulesoft-ops/formula-platform-alerts',
+    'mulesoft-ops/formula-platform-messages',
+    'mulesoft-ops/formula-arm-mon-query',
+    'mulesoft-ops/formula-arm-mon-alert',
+    'mulesoft-ops/formula-arm-mon-sync',
+    'mulesoft-ops/formula-arm-mon-ingest',
+    'mulesoft-ops/formula-alerts-admin-api',
+    'mulesoft-ops/formula-mule-message-processor',
+    'mulesoft-ops/formula-hybrid-insight'
   ].map(function (repo) {
     return fetchPR(repo);
   });

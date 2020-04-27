@@ -4,6 +4,7 @@ module.exports = function (ctx, cb) {
   var token = ctx.secrets['github-token'];
   var prsPromise = [
     'mulesoft/amc-automation',
+    'mulesoft/amc-commons-starter',
     'mulesoft/amc-base-http-client-starter',
 
     'mulesoft/amc-auth-proxy',

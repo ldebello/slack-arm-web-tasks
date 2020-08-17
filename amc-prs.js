@@ -2,45 +2,68 @@ var fetch = require('isomorphic-fetch');
 
 module.exports = function (ctx, cb) {
   var token = ctx.secrets['github-token'];
-  var prsPromise = [
-    'mulesoft/amc-automation',
-    'mulesoft/amc-commons-starter',
-    'mulesoft/amc-base-http-client-starter',
 
-    'mulesoft/amc-auth-proxy',
-    'mulesoft/amc-agent-reg-facade',
-    'mulesoft/amc-deployer',
-    'mulesoft/amc-atlas',
-    'mulesoft/amc-configuration-resolver',
-    'mulesoft/amc-support-x-api',
-    'mulesoft/amc-quotas',
-    'mulesoft/transport-layer',
+  const user = ctx.body.text === '--me' ? ctx.body.user_name : null;
+  
+  const reposGroupedByUserName = {
+    'pablo.rodriguez-5458': [
+      'mulesoft/amc-configuration-resolver',
+      'mulesoft/amc-deployer',
+      
+      'mulesoft-ops/tf-amc-configuration-resolver',
+      'mulesoft-ops/tf-amc-deployer',
+      'mulesoft-ops/tf-amc-deployer-db',
+      
+      'mulesoft-ops/formula-amc-configuration-resolver',
+      'mulesoft-ops/formula-amc-deployer',
+    ],
+    'marcos.singermann': [
+      'mulesoft/amc-support-x-api',
+      'mulesoft/amc-quotas',
 
-    'mulesoft-ops/tf-amc-auth-proxy',
-    'mulesoft-ops/tf-amc-agent-reg-facade',
-    'mulesoft-ops/tf-amc-deployer',
-    'mulesoft-ops/tf-amc-deployer-db',
-    'mulesoft-ops/tf-amc-atlas',
-    'mulesoft-ops/tf-amc-configuration-resolver',
-    'mulesoft-ops/tf-amc-support-x-api',
-    'mulesoft-ops/tf-amc-quotas',
-    'mulesoft-ops/tf-amc-quotas-db',
-    'mulesoft-ops/tf-amc-notification-bus',
-    'mulesoft-ops/tf-transport-layer',
+      'mulesoft-ops/tf-amc-support-x-api',
+      'mulesoft-ops/tf-amc-quotas',
+      'mulesoft-ops/tf-amc-quotas-db',
 
-    'mulesoft-ops/formula-amc-auth-proxy',
-    'mulesoft-ops/formula-amc-agent-reg-facade',
-    'mulesoft-ops/formula-amc-deployer',
-    'mulesoft-ops/formula-amc-atlas',
-    'mulesoft-ops/formula-amc-configuration-resolver',
-    'mulesoft-ops/formula-amc-support-x-api',
-    'mulesoft-ops/formula-amc-quotas',
-    'mulesoft-ops/formula-amc-quotas-broker',
-    'mulesoft-ops/formula-amc-notification-bus',
-    'mulesoft-ops/formula-transport-layer'
-  ].map(function (repo) {
-    return fetchPR(repo);
+      'mulesoft-ops/formula-amc-support-x-api',
+      'mulesoft-ops/formula-amc-quotas',
+      'mulesoft-ops/formula-amc-quotas-broker',
+    ],
+    'luis.debello': [
+      'mulesoft/amc-framework',
+      'mulesoft/amc-automation',
+      'mulesoft/amc-commons-starter',
+      'mulesoft/amc-base-http-client-starter',
+      'mulesoft/transport-layer',
+      
+      'mulesoft-ops/tf-amc-notification-bus',
+      'mulesoft-ops/tf-transport-layer',
+      
+      'mulesoft-ops/formula-amc-notification-bus',
+      'mulesoft-ops/formula-transport-layer'
+    ],
+    'nambroa': [
+      'mulesoft/amc-agent-reg-facade',
+      'mulesoft/amc-atlas',
+
+      'mulesoft-ops/tf-amc-agent-reg-facade',
+      'mulesoft-ops/tf-amc-atlas',
+      
+      'mulesoft-ops/formula-amc-agent-reg-facade',
+      'mulesoft-ops/formula-amc-atlas',
+    ]
+  };
+
+  const repos = Object.keys(reposGroupedByUserName)
+    .filter(key => !user || !!user && key === user)
+    .map(key => reposGroupedByUserName[key]);
+  
+  const prsPromise = Array.prototype.concat(...repos)
+    .map(function (repo) {
+      return fetchPR(repo);
   });
+
+  console.log(ctx.body)
   
   Promise.all(prsPromise)
     .then(function (prs) { 

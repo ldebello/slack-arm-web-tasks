@@ -16,6 +16,7 @@ module.exports = function (ctx, cb) {
     'mulesoft/alerts-admin-api',
     'mulesoft/mule-message-processor',
     'mulesoft/insight-ui-proxy',
+    'mulesoft/amc-auth-proxy',
 
     'mulesoft/arm-ui',
     'mulesoft/arm-flows-ui',
@@ -38,6 +39,7 @@ module.exports = function (ctx, cb) {
     'mulesoft-ops/tf-alerts-admin-api',
     'mulesoft-ops/tf-mule-message-processor',
     'mulesoft-ops/tf-hybrid-insight',
+    'mulesoft-ops/tf-amc-auth-proxy',
 
     'mulesoft-ops/formula-application-manager',
     'mulesoft-ops/formula-mcm',
@@ -53,7 +55,8 @@ module.exports = function (ctx, cb) {
     'mulesoft-ops/formula-arm-mon-ingest',
     'mulesoft-ops/formula-alerts-admin-api',
     'mulesoft-ops/formula-mule-message-processor',
-    'mulesoft-ops/formula-hybrid-insight'
+    'mulesoft-ops/formula-hybrid-insight',
+    'mulesoft-ops/formula-amc-auth-proxy'
   ].map(function (repo) {
     return fetchPR(repo);
   });

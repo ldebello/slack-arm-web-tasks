@@ -13,9 +13,6 @@ module.exports = function (ctx, cb) {
       'mulesoft-ops/tf-amc-configuration-resolver',
       'mulesoft-ops/tf-amc-deployer',
       'mulesoft-ops/tf-amc-deployer-db',
-      
-      'mulesoft-ops/formula-amc-configuration-resolver',
-      'mulesoft-ops/formula-amc-deployer',
     ],
     'marcos.singermann': [
       'mulesoft/amc-support-x-api',
@@ -25,8 +22,6 @@ module.exports = function (ctx, cb) {
       'mulesoft-ops/tf-amc-quotas',
       'mulesoft-ops/tf-amc-quotas-db',
 
-      'mulesoft-ops/formula-amc-support-x-api',
-      'mulesoft-ops/formula-amc-quotas',
       'mulesoft-ops/formula-amc-quotas-broker',
     ],
     'luis.debello': [
@@ -48,9 +43,6 @@ module.exports = function (ctx, cb) {
 
       'mulesoft-ops/tf-amc-agent-reg-facade',
       'mulesoft-ops/tf-amc-atlas',
-      
-      'mulesoft-ops/formula-amc-agent-reg-facade',
-      'mulesoft-ops/formula-amc-atlas',
     ]
   };
 
